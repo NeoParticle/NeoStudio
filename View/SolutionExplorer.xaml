@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="NeoStudio.View.SolutionExplorer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NeoStudio.View"
+             xmlns:model="clr-namespace:NeoStudio.Model"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="300">
+    <Grid>
+        <Grid.Resources>
+            <HierarchicalDataTemplate DataType="{x:Type model:TreeViewItem}" ItemsSource="{Binding Path=Children}">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="{Binding Path=Icon}" Width="16px" Height="16px"></Image>
+                    <TextBlock Margin="4" Text="{Binding Path=FileName}"/>
+                </StackPanel>
+            </HierarchicalDataTemplate>
+            <BooleanToVisibilityConverter x:Key="BoolToVis" />
+        </Grid.Resources>
+        <TreeView x:Name="treeView" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemsSource="{Binding Root}" SelectedItemChanged="TreeView_SelectedItemChanged" >
+            <!--<TreeView.ItemContainerStyle>
+                <Style TargetType="TreeViewItem">
+                    <Setter Property="IsExpanded" Value="{Binding IsExpanded}"/>
+                    --><!--<Setter Property="IsSelected" Value="{Binding IsSelected}"/>--><!--
+                </Style>
+            </TreeView.ItemContainerStyle>-->
+        </TreeView>
+    </Grid>
+</UserControl>

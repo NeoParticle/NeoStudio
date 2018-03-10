@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="NeoStudio.View.ErrorOutputView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NeoStudio.View"
+             xmlns:converter="clr-namespace:NeoStudio.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="800">
+    <UserControl.Resources>
+        <converter:StarWidthConverter x:Key="starWidthConverter"></converter:StarWidthConverter>
+    </UserControl.Resources>
+    <Grid>
+        <Image x:Name="successImage" Source="/NeoStudio;component/Images/ErrorView/success.png" Height="25" Visibility="Visible"
+               Width="25" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <ListView x:Name="errorList" ItemsSource="{Binding Path=ErrorOutput}"  Visibility="Hidden"
+                  VerticalContentAlignment="Top"  ScrollViewer.VerticalScrollBarVisibility="Visible" SelectedItem="{Binding Error}"
+          ScrollViewer.CanContentScroll="True" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Error/Warning" Width="100">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Tag="{Binding IsWarning}" Width="16" Height="16">
+                                    <Image.Style>
+                                        <Style TargetType="Image">
+                                            <Style.Triggers>
+                                                <DataTrigger  Binding="{Binding IsWarning}" Value="true">
+                                                    <Setter Property="Source" Value="/NeoStudio;component/Images/ErrorView/warning.png"/>
+                                                </DataTrigger >
+                                                <DataTrigger  Binding="{Binding IsWarning}" Value="false">
+                                                    <Setter Property="Source" Value="/NeoStudio;component/Images/ErrorView/error.png"/>
+                                                </DataTrigger >
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Image.Style>
+                                </Image>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Line}" Header="Line No" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Column}" Header="Column No" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding ErrorText}" Header="ErrorText" Width="Auto"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</UserControl>

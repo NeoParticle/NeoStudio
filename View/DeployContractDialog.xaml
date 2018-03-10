@@ -1,0 +1,68 @@
+﻿<Window x:Class="NeoStudio.View.DeployContractDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NeoStudio.View"
+        mc:Ignorable="d"
+        Title="  Deploy Contract " Height="450" Width="500" WindowStyle="ToolWindow" Icon="/NeoStudio;component/Images/36.png" FontWeight="Bold" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="50"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" VerticalContentAlignment="Center" Padding="0,0,10,0" Content="Name:"/>
+            <TextBox Grid.Column="1" Grid.Row="0" VerticalContentAlignment="Center" Margin="2" Text="{Binding Contract.Name}"/>
+
+            <Label Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" VerticalContentAlignment="Center" Padding="0,0,10,0" Content="Version:"/>
+            <TextBox Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Center" Margin="2" Text="{Binding Contract.Version}"/>
+
+            <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" VerticalContentAlignment="Center" Padding="0,0,10,0" Content="Author:"/>
+            <TextBox Grid.Column="1" Grid.Row="2" VerticalContentAlignment="Center" Margin="2" Text="{Binding Contract.Author}"/>
+
+            <Label Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right" VerticalContentAlignment="Center" Padding="0,0,10,0" Content="Email:"/>
+            <TextBox Grid.Column="1" Grid.Row="3" VerticalContentAlignment="Center" Margin="2" Text="{Binding Contract.Email}"/>
+
+            <Label Grid.Column="0" Grid.Row="4" HorizontalAlignment="Right" VerticalContentAlignment="Center" Padding="0,0,10,0" Content="Description:"/>
+            <TextBox Grid.Column="1" Grid.Row="4" VerticalContentAlignment="Center" Margin="2" Text="{Binding Contract.Description}"/>
+
+            <Label Grid.Column="0" Grid.Row="5" HorizontalAlignment="Right" VerticalContentAlignment="Center" Padding="0,0,10,0" Content="ParameterHexValue:"/>
+            <TextBox Grid.Column="1" Grid.Row="5" VerticalContentAlignment="Center" Margin="2" Text="{Binding Contract.ParameterHexValue}"/>
+
+            <Label Grid.Column="0" Grid.Row="6" HorizontalAlignment="Right" VerticalContentAlignment="Center" Padding="0,0,10,0" Content="ReturnTypeHexValue:"/>
+            <TextBox Grid.Column="1" Grid.Row="6" VerticalContentAlignment="Center" Margin="2" Text="{Binding Contract.ReturnTypeHexValue}"/>
+
+            <Label Grid.Column="0" Grid.Row="7" HorizontalAlignment="Right" VerticalContentAlignment="Center" Padding="0,0,10,0" Content="IsStorageRequired:"/>
+            <CheckBox Grid.Column="1" Grid.Row="7" VerticalContentAlignment="Center" Margin="2" IsChecked="{Binding Contract.IsStorageRequired}"/>
+
+            <Label Grid.Column="0" Grid.Row="8" HorizontalAlignment="Right" VerticalContentAlignment="Center" Padding="0,0,10,0" Content="HasDynamicInvoke:"/>
+            <CheckBox Grid.Column="1" Grid.Row="8" VerticalContentAlignment="Center" Margin="2" IsChecked="{Binding Contract.HasDynamicInvoke}"/>
+
+            <Button Grid.Column="1" Grid.Row="9" Content="Deploy" Command="{Binding DeployCommand}" HorizontalAlignment="Left" Width="150" Margin="10,5,0,0"/>
+        </Grid>
+    </Grid>
+</Window>

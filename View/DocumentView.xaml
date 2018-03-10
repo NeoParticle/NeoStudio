@@ -1,0 +1,14 @@
+﻿<ad:LayoutDocument x:Class="NeoStudio.View.DocumentView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ad="http://schemas.xceed.com/wpf/xaml/avalondock" 
+             xmlns:local="clr-namespace:NeoStudio.View"
+             xmlns:sn="http://scintillanet.codeplex.com"
+             mc:Ignorable="d">
+    <Grid>
+        <local:SaveFileDialog x:Name="saveFileDialog" Filter="All Files (*.*)|*.*" />
+        <sn:ScintillaWPF Name="scintilla"/>
+    </Grid>
+</ad:LayoutDocument>
